@@ -37,3 +37,14 @@ class VideoListView(generic.ListView):
 class VideoDetailView(generic.DetailView):
 	model = Video
 	template_name = 'charchitra/detail.html'
+
+
+class VideoDetailView(View):
+
+	def get(self,request):
+		video_dict={"v_name":"Toy story",
+					"description":"Andy's favourite toy, Woody, is worried that after Andy receives his birthday gift, a new toy called Buzz Lightyear, his importance may get reduced. He thus hatches a plan to eliminate Buzz.",
+					"url":"https://www.youtube.com/embed/tgbNymZ7vqY",
+					}
+
+		return render(request,'charchitra/video_detail.html',{'video':video_dict})
