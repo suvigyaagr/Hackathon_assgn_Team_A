@@ -28,10 +28,21 @@ def dashboard(request):
 
       
 
-class VideoListView(generic.ListView):
-	model = Video
-	template_name = 'charchitra/video_list.html'
+# class VideoListView(generic.ListView):
+# 	model = Video
+# 	template_name = 'charchitra/video_list.html'
 
+def VideoListView(request):
+	video_list = Video.objects.all()
+	print(video_list)
+	video_price_list = VideoPrice.objects.all()
+	print(video_price_list)
+	template_name = 'charchitra/video_list.html'
+	context = {
+	'video_list' : video_list,
+	'video_price_list' : video_price_list,
+	}
+	return render(request, template_name, context)
 
 
 class VideoDetailView(generic.DetailView):

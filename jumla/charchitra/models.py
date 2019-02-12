@@ -17,13 +17,6 @@ class Genre(models.Model):
         return f'{self.g_name}'
 
 
-class Duration(models.Model):
-    d_name = models.CharField(max_length=40, unique=True)
-
-    def __str__(self):
-        return f'{self.d_name}'
-
-
 class Video(models.Model):
     v_name = models.CharField(max_length=100)
     a_id = models.ManyToManyField(Actor)
@@ -31,6 +24,7 @@ class Video(models.Model):
     language = models.CharField(max_length=20)
     url = models.URLField(max_length=300)
     description = models.CharField(max_length=500)
+    youtube_url = models.URLField(max_length=300, null=True)
 
     def __str__(self):
         return f'{self.v_name}'
@@ -38,7 +32,7 @@ class Video(models.Model):
 
 class VideoPrice(models.Model):
     v_id = models.ForeignKey(Video)
-    dur_id = models.ForeignKey(Duration)
+    dur_name = models.CharField(max_length=40,unique=True, null=True)
     v_price = models.DecimalField(max_digits = 10, decimal_places = 2)
 
     def __str__ (self):
@@ -47,7 +41,7 @@ class VideoPrice(models.Model):
 class VideoPackPrice(models.Model):
     a_id = models.ForeignKey(Actor)
     g_id = models.ForeignKey(Genre)
-    duration = models.ForeignKey(Duration)
+    dur_name = models.CharField(max_length=40,unique=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
 
@@ -57,5 +51,5 @@ class Subscribe(models.Model):
     v_id = models.ForeignKey(Video)
     p_id = models.ForeignKey(VideoPackPrice)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    duration = models.ForeignKey(Duration)
+    dur_name = models.CharField(max_length=40, null=True)
     subscription_time = models.DateTimeField('date published')
