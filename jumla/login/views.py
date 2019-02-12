@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
-
+from django.template.loader import get_template
+from django.views import View
+from django.shortcuts import render
 from django.views import View
 
 
@@ -9,5 +11,10 @@ def index(request):
 
 class LoginClass(View):
     def get(self,request):
-        template = loader.get_template('login/index.html')
-        return HttpResponse(template.render(request))
+        return render(request,'login/index.html')
+
+    def post(self,request):
+        print(request.POST.get("Username"))
+        print(request.POST.get("Password"))
+        return HttpResponse("got it fam")
+      
