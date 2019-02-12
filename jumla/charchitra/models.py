@@ -24,7 +24,7 @@ class Duration(models.Model):
         return f'{self.d_name}'
 
 
-class Videos(models.Model):
+class Video(models.Model):
     v_name = models.CharField(max_length=100)
     a_id = models.ManyToManyField(Actor)
     g_id = models.ManyToManyField(Genre)
@@ -32,6 +32,17 @@ class Videos(models.Model):
     url = models.URLField(max_length=300)
     description = models.CharField(max_length=500)
 
+    def __str_(self):
+        return f'{self.v_name}'
+
+
+class VideoPrice(models.Model):
+    v_id = models.ForeignKey(Videos)
+    dur_id = models.ForeignKey(Duration)
+    v_price = models.DecimalField(max_digits = 10, decimal_places = 2)
+
+    def __str__ (self):
+        return f'{self.v_id} -> {self.v_price}'
 
 class VideoPackPrice(models.Model):
     a_id = models.ForeignKey(Actor)
