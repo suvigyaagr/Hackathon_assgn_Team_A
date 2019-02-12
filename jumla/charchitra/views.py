@@ -29,17 +29,34 @@ def dashboard(request):
 
       
 
-class VideoListView(generic.ListView):
-	model = Video
-	template_name = 'charchitra/video_list.html'
+# class VideoListView(generic.ListView):
+# 	model = Video
+# 	template_name = 'charchitra/video_list.html'
 
-	def get_queryset(self):
-		# qs = Video.objects.all()
-		word = self.request.GET.get('search_data')
-		if word:
-			return Video.objects.filter(v_name__icontains=word)
-		else:
-			return Video.objects.all()
+def VideoListView(request):
+	video_list = Video.objects.all()
+	print(video_list)
+	video_price_list = VideoPrice.objects.all()
+	print(video_price_list)
+	template_name = 'charchitra/video_list.html'
+	context = {
+	'video_list' : video_list,
+	'video_price_list' : video_price_list,
+	}
+	return render(request, template_name, context)
+
+# 	def get_queryset(self):
+# 		# qs = Video.objects.all()
+# 		return Video.objects.filter(v_name__icontains=self.request.GET.get('search_data'))
+
+# 	def get_queryset(self):
+# 		# qs = Video.objects.all()
+# 		word = self.request.GET.get('search_data')
+# 		if word:
+# 			return Video.objects.filter(v_name__icontains=word)
+# 		else:
+# 			return Video.objects.all()
+
 
 
 
