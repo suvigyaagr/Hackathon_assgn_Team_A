@@ -37,7 +37,7 @@ class Video(models.Model):
 
 
 class VideoPrice(models.Model):
-    v_id = models.ForeignKey(Videos)
+    v_id = models.ForeignKey(Video)
     dur_id = models.ForeignKey(Duration)
     v_price = models.DecimalField(max_digits = 10, decimal_places = 2)
 
@@ -50,3 +50,12 @@ class VideoPackPrice(models.Model):
     duration = models.ForeignKey(Duration)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+
+class Subscribe(models.Model):
+    u_id = models.ForeignKey('login.User')
+    is_pack = models.BooleanField(default=False)
+    v_id = models.ForeignKey(Videos)
+    p_id = models.ForeignKey(VideoPackPrice)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    duration = models.ForeignKey(Duration)
+    subscription_time = models.DateTimeField('date published')
