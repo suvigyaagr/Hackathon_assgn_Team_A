@@ -9,7 +9,7 @@ from .models import *
 
 # Create your views here.
 def dashboard(request):
-	return HttpResponse("Welcome")
+	return render(request, 'charchitra/dashboard.html')
 
 	
 # class ListVideoView(View):
@@ -58,16 +58,6 @@ def VideoListView(request):
 # 			return Video.objects.all()
 
 
-
-
-
-
-
-class VideoDetailView(generic.DetailView):
-	model = Video
-	template_name = 'charchitra/detail.html'
-
-
 def VideoDetailView(request, video_id):
 	video_detail = get_object_or_404(Video, pk=video_id)
 	print(video_detail)
@@ -79,3 +69,7 @@ def VideoDetailView(request, video_id):
 		'video_price_detail' : video_price_detail,
 	}
 	return render(request, template_name, context)
+
+
+def VideoPackListView(request):
+	HttpResponse("Welcome to Video Packs.")
