@@ -27,7 +27,7 @@ class Duration(models.Model):
         return f'{self.dur_id}'
 
 
-class Videos(models.Model):
+class Video(models.Model):
     v_name = models.CharField(max_length=100)
     a_id = models.ManyToManyField(Actor)
     g_id = models.ManyToManyField(Genre)
@@ -46,5 +46,4 @@ class VideoPrice(models.Model):
 
     def __str__ (self):
         return f'{self.v_id} -> {self.v_price}'
-
 
