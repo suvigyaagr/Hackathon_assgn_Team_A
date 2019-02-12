@@ -32,8 +32,11 @@ class Video(models.Model):
 
 class VideoPrice(models.Model):
     v_id = models.ForeignKey(Video)
-    dur_name = models.CharField(max_length=40,unique=True, null=True)
+    dur_name = models.CharField(max_length=40, null=True)
     v_price = models.DecimalField(max_digits = 10, decimal_places = 2)
+
+    class Meta:
+        unique_together = ('v_id', 'dur_name',)
 
     def __str__ (self):
         return f'{self.v_id} -> {self.v_price}'
@@ -41,9 +44,11 @@ class VideoPrice(models.Model):
 class VideoPackPrice(models.Model):
     a_id = models.ForeignKey(Actor)
     g_id = models.ForeignKey(Genre)
-    dur_name = models.CharField(max_length=40,unique=True, null=True)
+    dur_name = models.CharField(max_length=40, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+    class Meta:
+        unique_together = ('a_id', 'g_id', 'dur_name')
 
 class Subscribe(models.Model):
     u_id = models.ForeignKey('login.User')

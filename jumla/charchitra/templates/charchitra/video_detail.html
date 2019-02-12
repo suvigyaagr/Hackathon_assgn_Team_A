@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bare - Start Bootstrap Template</title>
+  <title>{{ video_detail.v_name }} - Video</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="{% url 'charchitra:dashboard' %}">JUMLA</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -48,7 +48,7 @@
   <!-- Page Content -->
   <div class="container">
 
-    <h1 class="mt-5">{{ video.v_name }}</h1>
+    <h1 class="mt-5">{{ video_detail.v_name }}</h1>
     <div class="row">
       <div class="col-sm" style="margin-top:30px">
 
@@ -58,13 +58,37 @@
 
   <tbody>
     <tr>
+      <td><b>Language</b></td>
+      <td>{{ video_detail.language }}</td>
+    </tr>
+    <tr>
 
-      <td>Language </td>
-      <td>English</td>
+      <td><b>Actor{{ video_detail.a_id.all|pluralize }}</b></td>
+      <td>
+        {% for actor in video_detail.a_id.all %}
+          {{ actor.a_name }}
+        {% endfor %}
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th>
+        Subscription Packs
+      </th>
     </tr>
     <tr>
       <td>Price (1 day)</td>
-      <td>&#8377 120</td>
+      <td>&#8377 {{ video_price_detail.0.v_price }}</td>
+      <td>
+        <a href="" class="btn-default" role="button">
+              subscribe
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Price (1 week)</td>
+      <td>&#8377 {{ video_price_detail.1.v_price }}</td>
       <td>
         <a href="" class="btn-default" role="button">
               subscribe
@@ -73,7 +97,7 @@
     </tr>
     <tr>
       <td>Price (1 month)</td>
-      <td>&#8377 1200</td>
+      <td>&#8377 {{ video_price_detail.2.v_price }}</td>
       <td>
         <a href="" class="btn-default" role="button">
               subscribe
@@ -82,7 +106,7 @@
     </tr>
     <tr>
       <td>Price (1 year)</td>
-      <td>&#8377 12000</td>
+      <td>&#8377 {{ video_price_detail.3.v_price }}</td>
       <td>
         <a href="" class="btn-default" role="button">
               subscribe
@@ -96,15 +120,23 @@
 
       </div>
       <div class="col-sm">
-        <iframe width="480" height="360"
-          src= {{ video.url }}>
+        <iframe 
+          width="560" 
+          height="315" 
+          src="{{ video_detail.youtube_url }}" 
+          frameborder="0" 
+          allow="accelerometer; 
+          autoplay; 
+          encrypted-media; 
+          gyroscope; 
+          picture-in-picture" allowfullscreen></iframe>
         </iframe>
       </div>
     </div>
     <div>
-        <h1> Summary </h1>
+        <h1> Description </h1>
 
-        <h5> {{ video.description }}</h5>
+        <h5> {{ video_detail.description }}</h5>
       </div>
 
   </div>

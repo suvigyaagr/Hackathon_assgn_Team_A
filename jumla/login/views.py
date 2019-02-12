@@ -17,6 +17,6 @@ class LoginClass(View):
     def post(self,request):
         user_name = request.POST.get("username")
         password = request.POST.get("password")
-        print(User.objects.get(u_id=user_name))
-        if password == User.objects.get(u_id=user_name):
-            return redirect('/charchitra/')
+        possible_passkey = [i.u_pass for i in User.objects.filter(u_id=user_name)]
+        if password in possible_passkey:
+            return redirect('/charchitra/dashboard')
