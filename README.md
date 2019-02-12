@@ -2,4 +2,4 @@
 Hackathon assignment on 12th Feb
 
 
-`python manage.py loaddate ../data.json1`
+`python manage.py loaddata ../data.json`
