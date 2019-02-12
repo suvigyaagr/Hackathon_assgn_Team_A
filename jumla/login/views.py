@@ -17,4 +17,3 @@ class LoginClass(View):
         print(request.POST.get("Username"))
         print(request.POST.get("Password"))
         return HttpResponse("got it fam")
-      
