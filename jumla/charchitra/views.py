@@ -34,6 +34,6 @@ class VideoListView(generic.ListView):
 
 
 
-class VideoDetailView(generic.ListView):
+class VideoDetailView(generic.DetailView):
 	model = Video
 	template_name = 'charchitra/detail.html'
