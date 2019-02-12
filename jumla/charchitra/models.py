@@ -19,7 +19,7 @@ class Genre(models.Model):
         return f'{self.g_id}'
 
 
-class Duration(modes.Model):
+class Duration(models.Model):
 	# dur_id = models.CharField(max_length=40)
 	d_name = models.CharField(max_length=40)
 
