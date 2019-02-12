@@ -78,9 +78,10 @@ WSGI_APPLICATION = 'jumla.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(env='DATABASE_URL', conn_max_age=120,
-                                      default='postgres://riidumci:43H8YmDkQq54hDm7q9XqctB4OiVa2iEA@baasu.db'
-                                              '.elephantsql.com:5432/riidumci'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
