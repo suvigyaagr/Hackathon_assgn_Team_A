@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.template.loader import get_template
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 
 
@@ -14,6 +14,6 @@ class LoginClass(View):
         return render(request,'login/index.html')
 
     def post(self,request):
-        print(request.POST.get("Username"))
-        print(request.POST.get("Password"))
-        return HttpResponse("got it fam")
+        print(request.POST.get("username"))
+        print(request.POST.get("password"))
+        return redirect('/charchitra/')
