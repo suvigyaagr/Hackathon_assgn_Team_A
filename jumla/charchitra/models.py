@@ -37,7 +37,7 @@ class Video(models.Model):
 
 
 class VideoPrice(models.Model):
-    v_id = models.ForeignKey(Videos)
+    v_id = models.ForeignKey(Video)
     dur_id = models.ForeignKey(Duration)
     v_price = models.DecimalField(max_digits = 10, decimal_places = 2)
 
