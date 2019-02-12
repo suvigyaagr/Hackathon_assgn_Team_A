@@ -1,5 +1,5 @@
 from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 
 from django.views import generic
@@ -68,12 +68,14 @@ class VideoDetailView(generic.DetailView):
 	template_name = 'charchitra/detail.html'
 
 
-class VideoDetailView(View):
-
-	def get(self,request):
-		video_dict={"v_name":"Toy story",
-					"description":"Andy's favourite toy, Woody, is worried that after Andy receives his birthday gift, a new toy called Buzz Lightyear, his importance may get reduced. He thus hatches a plan to eliminate Buzz.",
-					"url":"https://www.youtube.com/embed/tgbNymZ7vqY",
-					}
-
-		return render(request,'charchitra/video_detail.html',{'video':video_dict})
+def VideoDetailView(request, video_id):
+	video_detail = get_object_or_404(Video, pk=video_id)
+	print(video_detail)
+	video_price_detail = VideoPrice.objects.filter(v_id=video_id)
+	print(video_price_detail)
+	template_name = 'charchitra/video_detail.html'
+	context = {
+		'video_detail' : video_detail,
+		'video_price_detail' : video_price_detail,
+	}
+	return render(request, template_name, context)

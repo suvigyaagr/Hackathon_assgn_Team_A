@@ -48,7 +48,7 @@
   <!-- Page Content -->
   <div class="container">
 
-    <h1 class="mt-5">{{ video.v_name }}</h1>
+    <h1 class="mt-5">{{ video_detail.v_name }}</h1>
     <div class="row">
       <div class="col-sm" style="margin-top:30px">
 
@@ -97,14 +97,14 @@
       </div>
       <div class="col-sm">
         <iframe width="480" height="360"
-          src= {{ video.url }}>
+          src= {{ video_detail.youtube_url }}>
         </iframe>
       </div>
     </div>
     <div>
-        <h1> Summary </h1>
+        <h1> Description </h1>
 
-        <h5> {{ video.description }}</h5>
+        <h5> {{ video_detail.description }}</h5>
       </div>
 
   </div>
