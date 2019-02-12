@@ -20,10 +20,19 @@ class Genre(models.Model):
 
 
 class Duration(models.Model):
-	# dur_id = models.CharField(max_length=40)
-	d_name = models.CharField(max_length=40)
+    # dur_id = models.CharField(max_length=40)
+    d_name = models.CharField(max_length=40)
 
-	def __str__(self):
-		return f'{self.dur_id}'
+    def __str__(self):
+        return f'{self.dur_id}'
+
+
+class Videos(models.Model):
+    v_name = models.CharField(max_length=100)
+    a_id = models.ManyToManyField(Actor)
+    g_id = models.ManyToManyField(Genre)
+    language = models.CharField(max_length=20)
+    url = models.URLField(max_length=300)
+    description = models.CharField(max_length=500)
 
 
