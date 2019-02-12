@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 
-# from django.views import generics
+from django.views import generic
+
 from django.http import HttpResponse
 from .models import *
 
@@ -27,12 +28,9 @@ def dashboard(request):
 	return HttpResponse("Welcome")
 
 
-class VideoView(generic.ListView):
+class VideoListView(generic.ListView):
 	model = Video
 	template_name = 'charchitra/video_list.html'
 
 	def get_queryset(self):
 		return Video.objects.all()
-
-
-class
