@@ -49,6 +49,17 @@ def VideoListView(request):
 # 		# qs = Video.objects.all()
 # 		return Video.objects.filter(v_name__icontains=self.request.GET.get('search_data'))
 
+# 	def get_queryset(self):
+# 		# qs = Video.objects.all()
+# 		word = self.request.GET.get('search_data')
+# 		if word:
+# 			return Video.objects.filter(v_name__icontains=word)
+# 		else:
+# 			return Video.objects.all()
+
+
+
+
 
 
 
