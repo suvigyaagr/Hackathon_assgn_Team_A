@@ -32,8 +32,6 @@ class VideoListView(generic.ListView):
 	model = Video
 	template_name = 'charchitra/video_list.html'
 
-	def get_queryset(self):
-		return Video.objects.all()
 
 
 class VideoDetailView(generic.ListView):
