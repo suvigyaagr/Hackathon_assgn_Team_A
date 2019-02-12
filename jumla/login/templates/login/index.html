@@ -1,0 +1,16 @@
+<!-- templates/registration/login.html -->
+<h2>Login</h2>
+<form action="/login/" method="post">
+    {% csrf_token %}
+    <div>
+    <label for="Username">Username: </label>
+    <input id="Username" type="text" name="Username" value="{{ current_name }}">
+    </div>
+    <div>
+    <label for="Password">Password: </label>
+    <input id="Password" type="password" name="Password" value="{{ current_password }}">
+    </div>
+    <div>
+      <input type="submit" value="Submit">
+    </div>
+</form>
