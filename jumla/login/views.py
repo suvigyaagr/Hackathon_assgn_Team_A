@@ -3,6 +3,7 @@ from django.template import loader
 from django.template.loader import get_template
 from django.views import View
 from django.shortcuts import render
+from django.views import View
 
 
 def index(request):
@@ -16,3 +17,4 @@ class LoginClass(View):
         print(request.POST.get("Username"))
         print(request.POST.get("Password"))
         return HttpResponse("got it fam")
+      
