@@ -36,3 +36,9 @@ class Videos(models.Model):
     description = models.CharField(max_length=500)
 
 
+class VideoPackPrice(models.Model):
+    a_id = models.ForeignKey(Actor)
+    g_id = models.ForeignKey(Genre)
+    duration = models.ForeignKey(Duration)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
