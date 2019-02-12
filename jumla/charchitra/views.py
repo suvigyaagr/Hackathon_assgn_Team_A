@@ -34,7 +34,10 @@ def dashboard(request):
 # 	template_name = 'charchitra/video_list.html'
 
 def VideoListView(request):
-	video_list = Video.objects.all()
+	if request.method=="GET" and 'search_data' in request.GET:
+		video_list = Video.objects.filter(v_name__contains=request.GET['search_data'])
+	else:
+		video_list = Video.objects.all()
 	print(video_list)
 	video_price_list = VideoPrice.objects.all()
 	print(video_price_list)
@@ -44,18 +47,6 @@ def VideoListView(request):
 	'video_price_list' : video_price_list,
 	}
 	return render(request, template_name, context)
-
-# 	def get_queryset(self):
-# 		# qs = Video.objects.all()
-# 		return Video.objects.filter(v_name__icontains=self.request.GET.get('search_data'))
-
-# 	def get_queryset(self):
-# 		# qs = Video.objects.all()
-# 		word = self.request.GET.get('search_data')
-# 		if word:
-# 			return Video.objects.filter(v_name__icontains=word)
-# 		else:
-# 			return Video.objects.all()
 
 
 def VideoDetailView(request, video_id):
