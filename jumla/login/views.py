@@ -14,6 +14,6 @@ class LoginClass(View):
         return render(request,'login/index.html')
 
     def post(self,request):
-        print(request.POST.get("Username"))
-        print(request.POST.get("Password"))
+        print(request.POST.get("username"))
+        print(request.POST.get("password"))
         return HttpResponse("got it fam")

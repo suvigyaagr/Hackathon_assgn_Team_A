@@ -1,16 +1,30 @@
 <!-- templates/registration/login.html -->
-<h2>Login</h2>
-<form action="/login/" method="post">
-    {% csrf_token %}
-    <div>
-    <label for="Username">Username: </label>
-    <input id="Username" type="text" name="Username" value="{{ current_name }}">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- no additional media querie or css is required -->
+<div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form action="/login/" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" value="{{ current_name }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" value="{{ current_password }}">
+                            </div>
+                            <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-    <label for="Password">Password: </label>
-    <input id="Password" type="password" name="Password" value="{{ current_password }}">
-    </div>
-    <div>
-      <input type="submit" value="Submit">
-    </div>
-</form>
