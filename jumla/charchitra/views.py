@@ -19,3 +19,7 @@ class ListVideoView(View):
 
         l = [ { "title" : "https://images-na.ssl-images-amazon.com/images/I/41kYaOc988L._SL500_AC_SS350_.jpg" }]
         return render(request,'index.html',{'bla':l})
+
+      
+def dashboard(request):
+	return HttpResponse("Welcome")
