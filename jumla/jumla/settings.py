@@ -79,7 +79,8 @@ WSGI_APPLICATION = 'jumla.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(env='DATABASE_URL', conn_max_age=120,
-                                      default='postgres://imtestuser:imtestuser@127.0.0.1/imtestweb'),
+                                      default='postgres://riidumci:43H8YmDkQq54hDm7q9XqctB4OiVa2iEA@baasu.db'
+                                              '.elephantsql.com:5432/riidumci'),
 }
 
 
