@@ -32,7 +32,7 @@ class Video(models.Model):
     url = models.URLField(max_length=300)
     description = models.CharField(max_length=500)
 
-    def __str_(self):
+    def __str__(self):
         return f'{self.v_name}'
 
 

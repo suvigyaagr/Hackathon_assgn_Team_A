@@ -1,3 +1,4 @@
+from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
 from django.shortcuts import render
 from django.views import View
 
@@ -31,6 +32,13 @@ def dashboard(request):
 class VideoListView(generic.ListView):
 	model = Video
 	template_name = 'charchitra/video_list.html'
+
+	def get_queryset(self):
+		# qs = Video.objects.all()
+		return Video.objects.filter(v_name__icontains=self.request.GET.get('search_data'))
+
+
+
 
 
 
