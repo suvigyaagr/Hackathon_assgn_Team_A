@@ -68,7 +68,7 @@
                                     <p>Filter By Actor: <input type="text" name="filter_actor"/></p>
                                     <p>Filter By Genre: <input type="text" name="filter_genre"/></p>
                                     <p><input type="submit" name="submit" value="submit"/></p>
-</form>
+                                </form>
                             </div>
                             <!--end of col-->
                         </div>
@@ -111,7 +111,7 @@
                       <i class="glyphicon glyphicon-edit"> </i>
                     </a> -->
                     
-                    <a href="{% url 'charchitra:video_detail' video.pk %}" class="btn btn-info btn-xs" role="button">
+                    <a href="{% url 'charchitra:video_detail' video.pk user_id %}" class="btn btn-info btn-xs" role="button">
                       {{ video.v_name }}
                     </a> 
                     

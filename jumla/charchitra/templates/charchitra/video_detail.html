@@ -55,68 +55,68 @@
         <table class="table table-hover">
           <thead>
         <tr>
-
-  <tbody>
-    <tr>
-      <td><b>Language</b></td>
-      <td>{{ video_detail.language }}</td>
-    </tr>
-    <tr>
-
-      <td><b>Actor{{ video_detail.a_id.all|pluralize }}</b></td>
-      <td>
-        {% for actor in video_detail.a_id.all %}
-          {{ actor.a_name }}
-        {% endfor %}
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <th>
-        Subscription Packs
-      </th>
-    </tr>
-    <tr>
-      <td>Price (1 day)</td>
-      <td>&#8377 {{ video_price_detail.0.v_price }}</td>
-      <td>
-        <a href="" class="btn-default" role="button">
-              subscribe
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Price (1 week)</td>
-      <td>&#8377 {{ video_price_detail.1.v_price }}</td>
-      <td>
-        <a href="" class="btn-default" role="button">
-              subscribe
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Price (1 month)</td>
-      <td>&#8377 {{ video_price_detail.2.v_price }}</td>
-      <td>
-        <a href="" class="btn-default" role="button">
-              subscribe
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Price (1 year)</td>
-      <td>&#8377 {{ video_price_detail.3.v_price }}</td>
-      <td>
-        <a href="" class="btn-default" role="button">
-              subscribe
-        </a>
-      </td>
-    </tr>
-
-
-  </tbody>
-</table>
+          <tbody>
+            <tr>
+              <td><b>Language</b></td>
+              <td>{{ video_detail.language }}</td>
+            </tr>
+            <tr>
+              <td><b>Actor{{ video_detail.a_id.all|pluralize }}</b></td>
+              <td>
+                {% for actor in video_detail.a_id.all %}
+                  {{ actor.a_name }}
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th>
+                Subscription Packs
+              </th>
+            </tr>
+            <tr>
+              <td>Price (1 day)</td>
+              <!--<td>&#8377 {{ video_price_detail.0.v_price }}</td>-->
+              <td>
+                 <form method="GET" action=".">
+                    <!--<input name="subscribe" value="{{ video_price_detail}}" type="hidden">-->
+                    <input class="btn" type="submit" name="id-btn" value="{{ video_price_detail.0 }}">
+                 </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Price (1 week)</td>
+              <!--<td>&#8377 {{ video_price_detail.1.v_price }}</td>-->
+              <td>
+                 <form method="GET" action=".">
+                    <!--<input name="subscribe" value="{{ video_price_detail}}" type="hidden">-->
+                    <input class="btn" type="submit" name="id-btn" value="{{ video_price_detail.1 }}" >
+                 </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Price (1 month)</td>
+              <!--<td>&#8377 {{ video_price_detail.2.v_price }}</td>-->
+              <td>
+                 <form method="GET" action=".">
+                    <!--<input name="subscribe" value="{{ video_price_detail}}" type="hidden">-->
+                    <input class="btn" type="submit" name="id-btn" value="{{ video_price_detail.2 }}">
+                 </form>
+              </td>
+            </tr>
+            <tr>
+              <td>Price (1 year)</td>
+              <!--<td>&#8377 {{ video_price_detail.3.v_price }}</td>-->
+              <td>
+                 <form method="GET" action=".">
+                    <!--<input name="subscribe" value="{{ video_price_detail}}" type="hidden">-->
+                    <input class="btn" type="submit" name="id-btn" value="{{ video_price_detail.3 }}">
+                 </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
       </div>
       <div class="col-sm">
