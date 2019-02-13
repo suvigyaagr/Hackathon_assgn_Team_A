@@ -15,10 +15,10 @@
                         <form action="/login/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" value="{{ current_name }}">
+                                <input type="text" class="form-control" name="username" value="{{ current_name }}" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" value="{{ current_password }}">
+                                <input type="password" class="form-control" name="password" value="{{ current_password }}" required>
                             </div>
                             <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
 
