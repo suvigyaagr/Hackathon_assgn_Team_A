@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^video/(?P<user_id>\w+)/$', views.VideoListView, name='video_list'),
     url(r'^video/(?P<user_id>\w+)/(?P<video_id>\d+)/', views.VideoDetailView, name='video_detail'),
     url(r'^videopack/(?P<user_id>\w+)/$', views.VideoPackListView, name='video_pack_list'),
-    url(r'^user_profile/(?P<user_id>\w+)/$', views.UserProfileView, name='user_profile'),
+    url(r'^(?P<user_id>\w+)/$', views.UserProfileView, name='user_profile'),
     # # the line below is a test url
     # url(r'^videopack/$', views.VideoPackListView, name='video_list'),
 ]
