@@ -87,15 +87,15 @@
         <!--{% endfor %}-->
     <!--</div>-->
     <!--</div>-->
-
+  {% for pack in video_pack_list %}
   <hr>
     <div class="container">
             <a href="#" class="btn btn-default btn-xs" role="button">
-                    <h4> Action Movies </h4>
+                    <h4> {{ pack }} </h4>
                 </a>
         <div class="w-100"></div>
 
-         <div class="row">
+         <!-- <div class="row">
 
              <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
                  <table>
@@ -149,7 +149,7 @@
                  </tr>
                      </table>
               </div>
-         </div>
+         </div> -->
 
           <div class="row">
               <div class="col-xs-20 col-sm-10 col-md-2" style="margin: 10px 20px 20px 20px !important;">
@@ -192,5 +192,6 @@
 
       <br><br><br><br><br>
     </div><!--/container -->
+  {% endfor %}
   </body>
 </html>
