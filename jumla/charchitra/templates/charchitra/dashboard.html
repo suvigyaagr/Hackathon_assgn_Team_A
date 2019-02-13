@@ -39,20 +39,50 @@
         </div>
       </div>
     </nav>
-
+    <div class="container">
+        <br/>
+    	<div class="row justify-content-center">
 
 	<h2>
 		Welcome {{ user_id }} to JUMLA Dashboard
 	</h2>
-	<a href="{% url 'charchitra:video_list' user_id %}">
-		VIDEOS
-	</a>
+            <div class="w-100"></div>
 
-	<br>
+            <p style="margin-top:30px;max-width:750px"> Jumla is a Video library which allows users to subscribe videos or video packs.
+                This is a beta product. Follow the links below to checkout our library.</p>
+            <div class="w-100"></div>
+
+            <div class="w-100"></div>
+
+             <div class="container">
+            <div class="row">
+      <div class="col-sm" style="margin-top:30px">
+
+	<a href="{% url 'charchitra:video_list' user_id %}">
+        <center><h3>VIDEOS</h3></center>
+
+        <figure class="figure">
+            <img style="width:500px;height:350px" src="http://www.muslimtv.online/wp-content/uploads/2016/12/video-icon-thumbnail.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption text-right"></figcaption>
+        </figure>
+	</a>
+      </div>
+       <div class="col-sm" style="margin-top:30px">
+
+	<div class="w-100"></div>
 
 	<a href="{% url 'charchitra:video_pack_list' user_id %}">
-		VIDEO PACKS
+
+        <center><h3>VIDEO PACKS</h3></center>
+
+        <figure class="figure">
+            <img style="width:500px;height:350px" src="http://www.muslimtv.online/wp-content/uploads/2016/12/video-icon-thumbnail.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption text-right"></figcaption>
+        </figure>
 	</a>
+        </div>
+    </div>
+             </div>
 
 </body>
 </html>
