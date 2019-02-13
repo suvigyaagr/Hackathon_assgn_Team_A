@@ -100,12 +100,13 @@ def VideoPackListView(request, user_id):
 
 
 def UserProfileView(request, user_id):
-    user = get_object_or_404(User, pk=user_id)
-    subscription_list = Subscribe.objects.get(u_id=user)
+    user = get_object_or_404(User, u_id=user_id)
+    subscription_list = Subscribe.objects.filter(u_id=user)
     q_list = []
-    q_list.append(subscription_list)
+    for subs in subscription_list:
+        q_list.append(subs)
     context = {
         'user': user,
-        'subscription_list': q_list,
+        'subscription_list': subscription_list,
     }
     return render(request, 'charchitra/user_profile.html', context)

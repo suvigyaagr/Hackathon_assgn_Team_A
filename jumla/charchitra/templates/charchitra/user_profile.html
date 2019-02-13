@@ -50,9 +50,11 @@
   </tr>
   <tbody>
   {% for subs in subscription_list %}
+  <tr>
     <td>{{ subs.v_id }}</td>
     <td>{{ subs.price }}</td>
     <td>{{ subs.dur_name }}</td>
+  </tr>
   {% endfor %}
   </tbody>
 
