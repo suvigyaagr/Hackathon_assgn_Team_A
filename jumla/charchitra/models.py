@@ -51,6 +51,9 @@ class VideoPackPrice(models.Model):
     class Meta:
         unique_together = ('a_id', 'g_id', 'dur_name')
 
+    def __str__(self):
+        return f'{self.a_id} {self.g_id} Movies Pack'
+
 class Subscribe(models.Model):
     u_id = models.ForeignKey('login.User')
     is_pack = models.NullBooleanField(default=False)

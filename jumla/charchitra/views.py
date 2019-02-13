@@ -106,7 +106,7 @@ def UserProfileView(request, user_id):
     for subs in subscription_list:
         q_list.append(subs)
     context = {
-        'user': user,
+        'user_id': user_id,
         'subscription_list': subscription_list,
     }
     return render(request, 'charchitra/user_profile.html', context)
