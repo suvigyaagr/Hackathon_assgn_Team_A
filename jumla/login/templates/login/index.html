@@ -7,19 +7,20 @@
 
 <!-- no additional media querie or css is required -->
 <body background="https://boygeniusreport.files.wordpress.com/2016/03/movies-tiles.jpg?quality=98&strip=all">
+        <div class="card" style="background:black; opacity: 0.8">
         <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col-4">
-                <div class="card">
+                <div class="card" style="background: black; opacity:.8">
                     <div class="card-body"">
-                        <center><h1> JUMLA</h1></center>
+                        <center><h1 style="color: white"> JUMLA</h1></center>
 
                         <form action="/login/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" value="{{ current_name }}" required>
+                                <input type="text" class="form-control" name="username" value="{{ current_name }}" placeholder="username" required style="color: white; background: black">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" value="{{ current_password }}" required>
+                                <input type="password" class="form-control" name="password" value="{{ current_password }}" placeholder="password" required style="color: white; background: black">
                             </div>
                             <center>
                             <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
@@ -30,5 +31,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
