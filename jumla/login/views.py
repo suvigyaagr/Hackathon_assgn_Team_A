@@ -20,3 +20,6 @@ class LoginClass(View):
         possible_passkey = [i.u_pass for i in User.objects.filter(u_id=user_name)]
         if password in possible_passkey:
             return redirect('/charchitra/dashboard')
+        else:
+            return HttpResponse("User not found")
+

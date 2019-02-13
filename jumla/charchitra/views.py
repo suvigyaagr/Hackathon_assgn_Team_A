@@ -73,3 +73,7 @@ def VideoDetailView(request, video_id):
 
 def VideoPackListView(request):
 	HttpResponse("Welcome to Video Packs.")
+
+
+def user_profile(request):
+	return render(request, 'charchitra/user_profile.html')
