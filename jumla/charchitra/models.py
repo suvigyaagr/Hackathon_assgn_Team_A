@@ -42,6 +42,7 @@ class VideoPrice(models.Model):
         return f'{self.v_id} -> {self.v_price}'
 
 class VideoPackPrice(models.Model):
+    pack_name = models.CharField(max_length=100, null=True)
     a_id = models.ForeignKey(Actor)
     g_id = models.ForeignKey(Genre)
     dur_name = models.CharField(max_length=40, null=True, blank=True)
