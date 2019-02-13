@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.template.loader import get_template
 from django.views import View
@@ -19,7 +19,6 @@ class LoginClass(View):
         password = request.POST.get("password")
         possible_passkey = [i.u_pass for i in User.objects.filter(u_id=user_name)]
         if password in possible_passkey:
-            return redirect('/charchitra/dashboard')
+            return redirect('charchitra:video_list', id=user_name)
         else:
             return HttpResponse("User not found")
-
