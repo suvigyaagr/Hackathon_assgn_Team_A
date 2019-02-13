@@ -15,11 +15,11 @@ from .models import *
 
 
 # Create your views here.
-def dashboard(request):
-    return render(request, 'charchitra/dashboard.html')
+def dashboard(request, user_id):
+    return render(request, 'charchitra/dashboard.html', {'user_id' : user_id})
 
 
-def VideoListView(request, id, video_list=[]):
+def VideoListView(request, user_id, video_list=[]):
     if request.method == "GET":
         try:
             if 'filter_actor' in request.GET:
@@ -40,32 +40,35 @@ def VideoListView(request, id, video_list=[]):
     context = {
         'video_list': video_list,
         'video_price_list': video_price_list,
-        'user_id': User.objects.get(u_id='admin1').id,  # TODO:To be changed
+        'user_id': user_id, 
     }
     return render(request, template_name, context)
 
 
-def VideoDetailView(request, id, video_id, video_price=None):
+def VideoDetailView(request, user_id, video_id, video_price=None):
     video_detail = get_object_or_404(Video, pk=video_id)
     video_price_detail = VideoPrice.objects.filter(v_id=video_id)
     if request.method == "GET":
         if "id-btn" in request.GET:
-            user = User.objects.get(id=id)
+            # user = User.objects.get(id=id)
             print(request.GET.get("id-btn").split(" "))
-            video = Video.objects.get(v_name=request.GET.get('id-btn').split(" ")[0])
-            video_price = VideoPrice.objects.get(v_id=video,
-                                                 v_price=int(float(request.GET.get('id-btn').split(" ")[2])))
-            subscribe = Subscribe(u_id=user, is_pack=True, v_id=video, price=video_price.v_price,
-                                  dur_name=video_price.dur_name, subscription_time=datetime.date.today())
+            # video = Video.objects.get(v_name=request.GET.get('id-btn').split(" ")[0])
+            video = Video.objects.get(pk = video_id)
+            video_price = VideoPrice.objects.get(v_id=video_id,
+                                                 v_price=int(float(request.GET.get('id-btn').split(" ")[1])))
+            user = User.objects.get(u_id=user_id)
+            subscribe = Subscribe(u_id=user, is_pack=True, v_id=video, price=video_price.v_price, 
+                dur_name=video_price.dur_name, subscription_time=datetime.datetime.now())
             with transaction.atomic():
                 if Subscribe.objects.filter(pk=subscribe.pk).exists():
                     print('Not Possible')
                 else:
                     subscribe.save()
-                    return redirect('charchitra:video_list', id=id)
+                    return redirect('charchitra:video_list', user_id=user_id)
         else:
             template_name = 'charchitra/video_detail.html'
             context = {
+                'user_id' : user_id,
                 'video_detail': video_detail,
                 'video_price_detail': video_price_detail,
             }

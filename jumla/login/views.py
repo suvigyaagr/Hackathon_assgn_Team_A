@@ -17,8 +17,11 @@ class LoginClass(View):
     def post(self,request):
         user_name = request.POST.get("username")
         password = request.POST.get("password")
-        possible_passkey = [i.u_pass for i in User.objects.filter(u_id=user_name)]
+        users = User.objects.filter(u_id=user_name)
+        possible_passkey = [i.u_pass for i in users]
         if password in possible_passkey:
-            return redirect('charchitra:video_list', id=user_name)
+
+        	# request.session['user_id'] = user_name
+        	  return redirect('charchitra:dashboard', user_id=user_name )
         else:
             return HttpResponse("User not found")
