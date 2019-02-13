@@ -6,21 +6,24 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- no additional media querie or css is required -->
-<div class="container">
+<body background="https://boygeniusreport.files.wordpress.com/2016/03/movies-tiles.jpg?quality=98&strip=all">
         <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col-4">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body"">
+                        <center><h1> JUMLA</h1></center>
 
                         <form action="/login/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" value="{{ current_name }}">
+                                <input type="text" class="form-control" name="username" value="{{ current_name }}" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" value="{{ current_password }}">
+                                <input type="password" class="form-control" name="password" value="{{ current_password }}" required>
                             </div>
+                            <center>
                             <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
+                            </center>
 
                         </form>
                     </div>
@@ -28,3 +31,4 @@
             </div>
         </div>
     </div>
+</body>

@@ -64,11 +64,6 @@
                                         <!--end of col-->
                                     </div>
                                 </form>
-                                <form method="get" action=".">
-                                    <p>Filter By Actor: <input type="text" name="filter_actor"/></p>
-                                    <p>Filter By Genre: <input type="text" name="filter_genre"/></p>
-                                    <p><input type="submit" name="submit" value="submit"/></p>
-                                </form>
                             </div>
                             <!--end of col-->
                         </div>
@@ -92,32 +87,97 @@
         <!--{% endfor %}-->
     <!--</div>-->
     <!--</div>-->
-
+  {% for pack in video_pack_list %}
   <hr>
     <div class="container">
-          <div class="row">
+            <a href="#" class="btn btn-default btn-xs" role="button">
+                    <h4> {{ pack }} </h4>
+                </a>
+        <div class="w-100"></div>
 
+         <!-- <div class="row">
+
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 day)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 week)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 month)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 year)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+         </div> -->
+
+          <div class="row">
+              <div class="col-xs-20 col-sm-10 col-md-2" style="margin: 10px 20px 20px 20px !important;">
+
+
+
+              </div>
+
+              <div class="w-100"></div>
               {% for video in video_list %}
 
-            <div class="col-xs-20 col-sm-10 col-md-2" style="margin: 10px 20px 20px 20px !important;">
+            <div class="col" style="margin-right: 0px;" >
               <div class="thumbnail">
                 <!--<img src="http://placehold.it/500x250/EEE">-->
                   <img src="{{ video.url }}" style="height:150px;width:100px">
                   <div class="caption">
                     <!-- <p> {{ video.description }}</p> -->
 
-                    
+
                     <!-- <a href="#" class="btn btn-default btn-xs pull-right" role="button">
                       <i class="glyphicon glyphicon-edit"> </i>
                     </a> -->
-                    
-                    <a href="{% url 'charchitra:video_detail' user_id=user_id video_id=video.pk %}" class="btn btn-info btn-xs" role="button">
+
+                    <a href="{% url 'charchitra:video_detail' user_id video.pk %}" class="btn btn-info btn-xs" role="button">
                       {{ video.v_name }}
-                    </a> 
-                    
-                    <!-- <a href="#" class="btn btn-default btn-xs" role="button">
-                      price_here
-                    </a> -->
+                    </a>
+
+
                 </div>
               </div>
 
@@ -126,7 +186,12 @@
             {% endfor %}
 
       </div><!--/row-->
+
+
+
+
       <br><br><br><br><br>
     </div><!--/container -->
+  {% endfor %}
   </body>
 </html>

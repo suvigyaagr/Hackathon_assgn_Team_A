@@ -2,20 +2,97 @@
 <html>
 <head>
 	<title> Welcome to JUMLA </title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
 <body>
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'charchitra:dashboard' user_id %}">JUMLA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'charchitra:user_profile' user_id %}">User : {{ user_id }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+        <br/>
+    	<div class="row justify-content-center">
+
 	<h2>
-		Welcome to JUMLA Dashboard
+		Welcome {{ user_id }} to JUMLA Dashboard
 	</h2>
-	<a href="{% url 'charchitra:video_list' %}">
-		VIDEOS
-	</a>
+            <div class="w-100"></div>
 
-	<br>
+            <p style="margin-top:30px;max-width:750px"> Jumla is a Video library which allows users to subscribe videos or video packs.
+                This is a beta product. Follow the links below to checkout our library.</p>
+            <div class="w-100"></div>
 
-	<a href="{% url 'charchitra:video_pack_list' %}">
-		VIDEO PACKS
+            <div class="w-100"></div>
+
+             <div class="container">
+            <div class="row">
+      <div class="col-sm" style="margin-top:30px">
+
+	<a href="{% url 'charchitra:video_list' user_id %}">
+
+         <h3 style="position: absolute;
+  top: 46%;
+  left: 44%;
+  transform: translate(-50%, -50%);">VIDEO</h3>
+
+        <figure class="figure">
+            <img style="width:500px;height:350px" src="http://www.muslimtv.online/wp-content/uploads/2016/12/video-icon-thumbnail.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption text-right"></figcaption>
+        </figure>
 	</a>
+      </div>
+       <div class="col-sm" style="margin-top:30px">
+
+	<div class="w-100"></div>
+
+	<a href="{% url 'charchitra:video_pack_list' user_id %}">
+
+
+        <h3 style="position: absolute;
+  top: 46%;
+  left: 39%;
+  transform: translate(-50%, -50%);
+  max-width:30px">VIDEO PACKS</h3>
+
+
+        <figure class="figure">
+            <img style="width:500px;height:350px" src="http://www.muslimtv.online/wp-content/uploads/2016/12/video-icon-thumbnail.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption text-right"></figcaption>
+        </figure>
+	</a>
+        </div>
+    </div>
+             </div>
 
 </body>
 </html>
