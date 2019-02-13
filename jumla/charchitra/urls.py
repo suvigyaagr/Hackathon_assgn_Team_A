@@ -10,4 +10,8 @@ urlpatterns = [
     url(r'^video/$', views.VideoListView, name='video_list'),
     url(r'^video/(?P<video_id>\d+)/$', views.VideoDetailView, name = 'video_detail'),
     url(r'^videopack/$', views.VideoPackListView, name='video_pack_list'),
+
+    # the line below is a test url
+    url(r'^videopack/$', views.VideoPackListView, name='video_list'),
+
 ]

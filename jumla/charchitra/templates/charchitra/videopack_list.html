@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Videos</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'charchitra:dashboard' %}">JUMLA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+        <br/>
+    	<div class="row justify-content-center">
+                            <div class="col-12 col-md-10 col-lg-8">
+                                <form class="card card-sm" >
+                                    <div class="card-body row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <i class="fas fa-search h4 text-body"></i>
+                                        </div>
+                                        <!--end of col-->
+                                        <form action="." method="post">
+                                        <div class="col">
+                                            <input class="form-control form-control-lg form-control-borderless" type="search"
+                                                   name="search_data" placeholder="Search topics or keywords" >
+                                        </div>
+                                        <!--end of col-->
+                                        <div class="col-auto">
+                                            <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                        </div>
+                                        </form>
+                                        <!--end of col-->
+                                    </div>
+                                </form>
+                            </div>
+                            <!--end of col-->
+                        </div>
+    </div>
+
+
+
+  <!--<div class="container">-->
+
+    <!--<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h1>-->
+
+    <!--<hr class="mt-2 mb-5">-->
+
+    <!--<div class="row text-center text-lg-left">-->
+      <!--{% for i in video_list %}-->
+      <!--<div class="col-lg-3 col-md-4 col-6">-->
+        <!--<a href="#" class="d-block mb-4 h-20">-->
+              <!--<img class="img-fluid img-thumbnail" src={{ i }} alt="">-->
+            <!--</a>-->
+      <!--</div>-->
+        <!--{% endfor %}-->
+    <!--</div>-->
+    <!--</div>-->
+
+  <hr>
+    <div class="container">
+            <a href="#" class="btn btn-default btn-xs" role="button">
+                    <h4> Action Movies </h4>
+                </a>
+        <div class="w-100"></div>
+
+         <div class="row">
+
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 day)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 week)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 month)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+             <div class="col-sm" style="margin: 10px 20px 20px 20px !important;">
+                 <table>
+                 <tr>
+                     <td>Price (1 year)</td>
+                     <td>&#8377 </td>
+                     <td>
+                         <a href="" class="btn-default" role="button">
+                             subscribe
+                         </a>
+                     </td>
+                 </tr>
+                     </table>
+              </div>
+         </div>
+
+          <div class="row">
+              <div class="col-xs-20 col-sm-10 col-md-2" style="margin: 10px 20px 20px 20px !important;">
+
+
+
+              </div>
+
+              <div class="w-100"></div>
+              {% for video in video_list %}
+
+            <div class="col" style="margin-right: 0px;" >
+              <div class="thumbnail">
+                <!--<img src="http://placehold.it/500x250/EEE">-->
+                  <img src="{{ video.url }}" style="height:150px;width:100px">
+                  <div class="caption">
+                    <!-- <p> {{ video.description }}</p> -->
+
+
+                    <!-- <a href="#" class="btn btn-default btn-xs pull-right" role="button">
+                      <i class="glyphicon glyphicon-edit"> </i>
+                    </a> -->
+
+                    <a href="{% url 'charchitra:video_detail' video.pk %}" class="btn btn-info btn-xs" role="button">
+                      {{ video.v_name }}
+                    </a>
+
+
+                </div>
+              </div>
+
+            </div>
+
+            {% endfor %}
+
+      </div><!--/row-->
+
+
+
+
+      <br><br><br><br><br>
+    </div><!--/container -->
+  </body>
+</html>
