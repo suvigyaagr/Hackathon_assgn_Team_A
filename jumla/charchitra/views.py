@@ -61,7 +61,7 @@ def VideoDetailView(request, user_id, video_id, video_price=None):
                 dur_name=video_price.dur_name, subscription_time=datetime.datetime.now())
             with transaction.atomic():
                 if Subscribe.objects.filter(pk=subscribe.pk).exists():
-                    print('Not Possible')
+                    return HttpResponse('Already Subscribed')
                 else:
                     subscribe.save()
                     return redirect('charchitra:video_list', user_id=user_id)
@@ -92,5 +92,13 @@ def VideoPackListView(request):
 
 
 
-def user_profile(request):
-	return render(request, 'charchitra/user_profile.html')
+def UserProfileView(request, user_id):
+	user = get_object_or_404(User, pk=user_id)
+	subscription_list = Subscribe.objects.get(u_id=user)
+	q_list = []
+	q_list.append(subscription_list)
+	context = {
+		'user': user,
+		'subscription_list': q_list,
+	}
+	return render(request, 'charchitra/user_profile.html', context)

@@ -48,10 +48,13 @@
     <th style="width:25%;">Price</th>
     <th style="width:25;">Duration</th>
   </tr>
-  <tr>
-    <td>XYZ</td>
-    <td>Germany</td>
-      <td>100</td>
+  <tbody>
+  {% for subs in subscription_list %}
+    <td>{{ subs.v_id }}</td>
+    <td>{{ subs.price }}</td>
+    <td>{{ subs.dur_name }}</td>
+  {% endfor %}
+  </tbody>
 
 </table>
 </body>
