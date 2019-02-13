@@ -78,13 +78,14 @@ def VideoDetailView(request, user_id, video_id, video_price=None):
 # def VideoPackListView(request):
 # 	HttpResponse("Welcome to Video Packs.")
 
-def VideoPackListView(request):
+def VideoPackListView(request, user_id):
 	video_list = Video.objects.all()
 	print(video_list)
 	video_price_list = VideoPrice.objects.all()
 	print(video_price_list)
 	template_name = 'charchitra/videopack_list.html'
 	context = {
+    'user_id': user_id,
 	'video_list' : video_list,
 	'video_price_list' : video_price_list,
 	}
