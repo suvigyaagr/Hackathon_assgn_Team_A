@@ -1,50 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "charchitra/base.html" %}
 
-<head>
+{% block title %}
+  {{ video_detail.v_name }} - Video
+{% endblock title %} 
 
+
+{% block head %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{{ video_detail.v_name }} - Video</title>
-
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
+{% endblock head %}
 
-<body>
 
-  <!-- Navigation -->
-  <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'charchitra:dashboard' user_id %}">JUMLA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li> -->
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'charchitra:user_profile' user_id %}">User : {{ user_id }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+{% block body %}
 
   <!-- Page Content -->
   <div class="container">
@@ -147,6 +120,4 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-</body>
-
-</html>
+{% endblock body %}
