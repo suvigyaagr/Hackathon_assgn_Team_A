@@ -1,75 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+{% extends "charchitra/base.html" %}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+{% block title %}
+  Video Pack Detail
+{% endblock title %} 
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
 
-<h2>ACTION MOVIES</h2>
+{% block head %}
 
-<table class="table" style="margin-top:50px;">
-  <thead>
-    <tr>
-      <th scope="col">Pack Price(1 day): &#8377; 200</th>
-      <th scope="col"> <a href="">Subscribe</a</th>
-    </tr>
-    <tr>
-        <th scope="col">Pack Price(1 week): &#8377; 200</th>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+{% endblock head %}
+
+{% block body %}
+  <h2>ACTION MOVIES</h2>
+
+  <table class="table" style="margin-top:50px;">
+    <thead>
+      <tr>
+        <th scope="col">Pack Price(1 day): &#8377; 200</th>
         <th scope="col"> <a href="">Subscribe</a</th>
+      </tr>
+      <tr>
+          <th scope="col">Pack Price(1 week): &#8377; 200</th>
+          <th scope="col"> <a href="">Subscribe</a</th>
+      </tr>
+      <tr>
+          <th scope="col">Pack Price(1 month): &#8377; 200</th>
+          <th scope="col"> <a href="">Subscribe</a</th>
+      </tr>
+      <tr>
+          <th scope="col">Pack Price(1 year): &#8377; 200</th>
+          <th scope="col"> <a href="">Subscribe</a</th>
+      </tr>
+    </thead>
+  </table>
+
+
+  <table   style="margin-top:50px;">
+    <tr>
+      <th>Video Name</th>
+      <th>Language</th>
+      <th>Description of the video</th>
     </tr>
     <tr>
-        <th scope="col">Pack Price(1 month): &#8377; 200</th>
-        <th scope="col"> <a href="">Subscribe</a</th>
+      <td>video-1</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-        <th scope="col">Pack Price(1 year): &#8377; 200</th>
-        <th scope="col"> <a href="">Subscribe</a</th>
+      <td>Video-2</td>
+      <td></td>
+      <td></td>
     </tr>
-  </thead>
-</table>
+    <tr>
+      <td>Video-3</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
 
-
-<table   style="margin-top:50px;">
-  <tr>
-    <th>Video Name</th>
-    <th>Language</th>
-    <th>Description of the video</th>
-  </tr>
-  <tr>
-    <td>video-1</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Video-2</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Video-3</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-</body>
-</html>
+{% endblock body %}
